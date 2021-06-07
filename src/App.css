@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* My style */
+.kayak-img {
+  width: 900px;
+}
