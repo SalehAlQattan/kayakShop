@@ -1,6 +1,7 @@
 import '../App.css';
 import kayaks from '../products';
 import KayakItem from './KayakItem';
+import { KayaksContainer } from '../styles';
 
 const KayakList = () => {
   const kayakList = kayaks.map(kayak => {
@@ -14,7 +15,7 @@ const KayakList = () => {
     );
   });
 
-  return <div className="kayaks">{kayakList}</div>;
+  return <KayaksContainer>{kayakList}</KayaksContainer>;
 };
 
 export default KayakList;

@@ -1,12 +1,13 @@
 import HomePagekayak from '../images/HomePagekayak.jpg';
 import '../App.css';
+import { Title, Subtitle, HerroImage } from '../styles';
 
 const Home = () => {
   return (
     <div className="App">
-      <h1 className="title">Welcome to the Kayak Shop</h1>
-      <h2 className="sub-title">Buy your Kayak now!</h2>
-      <img className="kayak-img" src={HomePagekayak} alt="kayak img" />
+      <Title>Welcome to the Kayak Shop</Title>
+      <Subtitle>Buy your Kayak now!</Subtitle>
+      <HerroImage src={HomePagekayak} alt="Kayak image" />
     </div>
   );
 };
