@@ -1,12 +1,14 @@
 import '../App.css';
-import { ProductImage, ProductTitle, ProductPrice } from '../styles';
+import { ProductContainer } from '../styles';
 
 const KayakItem = props => {
   return (
     <div>
-      <ProductImage src={props.img} alt={props.name} />
-      <ProductTitle>{props.name}</ProductTitle>
-      <ProductPrice>{props.price} KD</ProductPrice>
+      <ProductContainer>
+        <img src={props.img} alt={props.name} />
+        <h2>{props.name}</h2>
+        <h2>{props.price} KD</h2>
+      </ProductContainer>
     </div>
   );
 };

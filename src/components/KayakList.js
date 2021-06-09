@@ -7,9 +7,9 @@ const KayakList = () => {
   const kayakList = kayaks.map(kayak => {
     return (
       <KayakItem
+        img={kayak.img}
         name={kayak.name}
         price={kayak.price}
-        img={kayak.img}
         key={kayak.id}
       />
     );
