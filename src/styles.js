@@ -10,6 +10,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const ToggleButton = styled.button`
+  text-align: left;
+  color: ${props => props.theme.backgroundColor};
+  background: ${props => props.theme.mainColor};
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 1.6rem;
+  font-weight: bold;
+`;
+
 export const HerroImage = styled.img`
   width: 90%;
   display: block;

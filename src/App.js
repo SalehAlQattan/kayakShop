@@ -1,24 +1,54 @@
+// Global styling
 import './App.css';
+// Components
 import Home from './components/Home';
 import KayakList from './components/KayakList';
-import { GlobalStyle } from './styles';
+// Styles
+import { GlobalStyle, ToggleButton } from './styles';
 import { ThemeProvider } from 'styled-components';
 
+// States
+import { useState } from 'react';
+
 const theme = {
-  mainColor: '#293b5f',
-  backgroundColor: '#dbe6fd',
-  secondColor: 'blue',
-  // https://colorhunt.co/palette/290257
-  // #293b5f
-  // #47597e
-  // #dbe6fd
-  // #b2ab8c
+  dark: {
+    mainColor: '#dbe6fd',
+    backgroundColor: '#293b5f',
+  },
+  light: {
+    mainColor: '#293b5f',
+    backgroundColor: '#dbe6fd',
+  },
 };
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState('light');
+
+  const [buttonText, setButtonText] = useState('Dark Mode');
+
+  const toggleTheme = () => {
+    currentTheme === 'light'
+      ? setCurrentTheme('dark')
+      : setCurrentTheme('light');
+  };
+
+  const toggleText = () => {
+    buttonText === 'Dark Mode'
+      ? setButtonText('Light Mode')
+      : setButtonText('Dark Mode');
+  };
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
+      <ToggleButton
+        onClick={() => {
+          toggleTheme();
+          toggleText();
+        }}
+      >
+        {buttonText}
+      </ToggleButton>
       <Home />
       <KayakList />
     </ThemeProvider>
