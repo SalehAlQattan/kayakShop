@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ToggleButton = styled.button`
-  text-align: left;
   color: ${props => props.theme.backgroundColor};
   background: ${props => props.theme.mainColor};
   padding: 10px;
@@ -24,6 +23,15 @@ export const HerroImage = styled.img`
   width: 90%;
   display: block;
   margin: 0 auto;
+`;
+
+export const InputField = styled.input`
+  margin: 2rem;
+  width: 70%;
+  padding: 1rem;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 1rem;
 `;
 
 export const ProductContainer = styled.div`

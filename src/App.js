@@ -1,4 +1,4 @@
-// Global styling
+// Default styling
 import './App.css';
 // Components
 import Home from './components/Home';
@@ -22,16 +22,18 @@ const theme = {
 };
 
 function App() {
+  // Changing the theme state
   const [currentTheme, setCurrentTheme] = useState('light');
-
+  // Chainging the dark mode button state
   const [buttonText, setButtonText] = useState('Dark Mode');
 
+  // Function to toggle the theme
   const toggleTheme = () => {
     currentTheme === 'light'
       ? setCurrentTheme('dark')
       : setCurrentTheme('light');
   };
-
+  // Function to toggle the dark mode button
   const toggleText = () => {
     buttonText === 'Dark Mode'
       ? setButtonText('Light Mode')
