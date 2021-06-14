@@ -16,11 +16,12 @@ const KayakList = props => {
     .map(kayak => {
       return (
         <KayakItem
-          img={kayak.img}
-          name={kayak.name}
-          price={kayak.price}
+          // img={kayak.img}
+          // name={kayak.name}
+          // price={kayak.price}
           key={kayak.id}
           setKayak={props.setKayak}
+          kayak={kayak}
         />
       );
     });

@@ -11,9 +11,6 @@ import { ThemeProvider } from 'styled-components';
 // States
 import { useState } from 'react';
 
-// Data
-import kayaks from './products';
-
 const theme = {
   dark: {
     mainColor: '#dbe6fd',

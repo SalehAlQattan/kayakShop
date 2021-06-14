@@ -36,6 +36,8 @@ export const InputField = styled.input`
 `;
 
 export const ProductContainer = styled.div`
+  cursor: pointer;
+
   img {
     width: 250px;
     height: 250px;
@@ -52,10 +54,11 @@ export const KayaksContainer = styled.div`
   text-align: center;
 `;
 
-export const DetailsContaioner = styled.div`
+export const DetailsContainer = styled.div`
   width: 50%;
   margin: 0 auto;
   img {
+    margin-top: 3rem;
     width: 100%;
   }
 `;

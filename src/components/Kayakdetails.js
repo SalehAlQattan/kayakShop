@@ -1,13 +1,13 @@
-import { DetailsContaioner } from '../styles';
+import { DetailsContainer } from '../styles';
 
 const Kayakdetails = props => {
   return (
-    <DetailsContaioner>
-      <img src={props.kayaks.img} alt={props.kayaks.name} />
-      <h2>{props.kayaks.name}</h2>
-      <h2>{props.kayaks.price}</h2>
-      <h2>{props.kayaks.description}</h2>
-    </DetailsContaioner>
+    <DetailsContainer>
+      <img src={props.kayak.img} alt={props.kayak.name} />
+      <h2>{props.kayak.name}</h2>
+      <h2>{props.kayak.price} KD</h2>
+      <h2>{props.kayak.description}</h2>
+    </DetailsContainer>
   );
 };
 

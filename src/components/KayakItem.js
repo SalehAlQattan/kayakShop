@@ -2,12 +2,13 @@ import '../App.css';
 import { ProductContainer } from '../styles';
 
 const KayakItem = props => {
+  const kayak = props.kayak;
   return (
     <div>
-      <ProductContainer onClick={() => props.setKayak(props.kayak)}>
-        <img src={props.img} alt={props.name} />
-        <h2>{props.name}</h2>
-        <h2>{props.price} KD</h2>
+      <ProductContainer onClick={() => props.setKayak(kayak)}>
+        <img src={kayak.img} alt={kayak.name} />
+        <h2>{kayak.name}</h2>
+        <h2>{kayak.price} KD</h2>
       </ProductContainer>
     </div>
   );
