@@ -17,6 +17,7 @@ export const ToggleButton = styled.button`
   border-radius: 7px;
   font-size: 1.6rem;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const HerroImage = styled.img`
@@ -49,4 +50,12 @@ export const KayaksContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   text-align: center;
+`;
+
+export const DetailsContaioner = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
 `;

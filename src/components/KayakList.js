@@ -1,12 +1,14 @@
 import '../App.css';
+// Components
 import kayaks from '../products';
 import KayakItem from './KayakItem';
 import Searchbar from './Searchbar';
+// Styles
 import { KayaksContainer } from '../styles';
-
+// useState
 import { useState } from 'react';
 
-const KayakList = () => {
+const KayakList = props => {
   const [query, setQuery] = useState('');
 
   const kayakList = kayaks
@@ -18,6 +20,7 @@ const KayakList = () => {
           name={kayak.name}
           price={kayak.price}
           key={kayak.id}
+          setKayak={props.setKayak}
         />
       );
     });

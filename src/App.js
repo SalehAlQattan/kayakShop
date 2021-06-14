@@ -3,12 +3,16 @@ import './App.css';
 // Components
 import Home from './components/Home';
 import KayakList from './components/KayakList';
+import Kayakdetails from './components/Kayakdetails';
 // Styles
 import { GlobalStyle, ToggleButton } from './styles';
 import { ThemeProvider } from 'styled-components';
 
 // States
 import { useState } from 'react';
+
+// Data
+import kayaks from './products';
 
 const theme = {
   dark: {
@@ -26,6 +30,8 @@ function App() {
   const [currentTheme, setCurrentTheme] = useState('light');
   // Chainging the dark mode button state
   const [buttonText, setButtonText] = useState('Dark Mode');
+  // XXX
+  const [kayak, setKayak] = useState(null);
 
   // Function to toggle the theme
   const toggleTheme = () => {
@@ -40,6 +46,14 @@ function App() {
       : setButtonText('Dark Mode');
   };
 
+  const setView = () => {
+    return kayak ? (
+      <Kayakdetails kayak={kayak} />
+    ) : (
+      <KayakList setKayak={setKayak} />
+    );
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
@@ -52,7 +66,7 @@ function App() {
         {buttonText}
       </ToggleButton>
       <Home />
-      <KayakList />
+      {setView()}
     </ThemeProvider>
   );
 }
