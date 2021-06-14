@@ -10,7 +10,7 @@ const KayakList = () => {
   const [query, setQuery] = useState('');
 
   const kayakList = kayaks
-    .filter(kayak => kayak.name.includes(query))
+    .filter(kayak => kayak.name.toUpperCase().includes(query.toUpperCase()))
     .map(kayak => {
       return (
         <KayakItem

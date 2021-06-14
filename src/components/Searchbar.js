@@ -1,10 +1,10 @@
 // components
 import { InputField } from '../styles';
 
-const Searchbar = props => {
+const Searchbar = ({ setQuery }) => {
   return (
     <InputField
-      onChange={event => props.setQuery(event.target.value.toUpperCase())}
+      onChange={event => setQuery(event.target.value)}
       placeholder="Enter Your Query Here..."
     />
   );
