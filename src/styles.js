@@ -55,12 +55,10 @@ export const KayaksContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 1rem auto;
   img {
     margin-top: 1rem;
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
+    width: 90%;
   }
 `;
