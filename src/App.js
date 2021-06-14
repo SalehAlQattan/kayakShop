@@ -45,7 +45,7 @@ function App() {
 
   const setView = () => {
     return kayak ? (
-      <Kayakdetails kayak={kayak} />
+      <Kayakdetails kayak={kayak} setKayak={setKayak} />
     ) : (
       <KayakList setKayak={setKayak} />
     );

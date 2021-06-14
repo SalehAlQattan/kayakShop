@@ -7,6 +7,7 @@ const Kayakdetails = props => {
       <h2>{props.kayak.name}</h2>
       <h2>{props.kayak.price} KD</h2>
       <h2>{props.kayak.description}</h2>
+      <button onClick={() => props.setKayak(null)}>Go Back</button>
     </DetailsContainer>
   );
 };

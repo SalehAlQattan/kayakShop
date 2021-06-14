@@ -46,7 +46,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const KayaksContainer = styled.div`
-  margin-top: 5rem;
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -58,7 +58,9 @@ export const DetailsContainer = styled.div`
   width: 50%;
   margin: 0 auto;
   img {
-    margin-top: 3rem;
-    width: 100%;
+    margin-top: 1rem;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
   }
 `;
