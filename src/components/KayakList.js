@@ -1,3 +1,4 @@
+// Default styling
 import '../App.css';
 // Components
 import kayaks from '../products';
@@ -11,14 +12,12 @@ import { useState } from 'react';
 const KayakList = props => {
   const [query, setQuery] = useState('');
 
-  const kayakList = kayaks
+  const kayakList = props.kayaks
     .filter(kayak => kayak.name.toUpperCase().includes(query.toUpperCase()))
     .map(kayak => {
       return (
         <KayakItem
-          // img={kayak.img}
-          // name={kayak.name}
-          // price={kayak.price}
+          deleteKayak={props.deleteKayak}
           key={kayak.id}
           setKayak={props.setKayak}
           kayak={kayak}

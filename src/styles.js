@@ -62,3 +62,8 @@ export const DetailsContainer = styled.div`
     width: 90%;
   }
 `;
+
+export const DeleteButtonStyled = styled.button`
+  color: ${props => props.theme.red};
+  padding: 1rem;
+`;
