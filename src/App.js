@@ -7,12 +7,12 @@ import Kayakdetails from './components/Kayakdetails';
 // Styles
 import { GlobalStyle, ToggleButton } from './styles';
 import { ThemeProvider } from 'styled-components';
-
-// States
+// useStates
 import { useState } from 'react';
 // Data
 import kayaks from './products';
 
+// Website theme
 const theme = {
   dark: {
     mainColor: '#dbe6fd',
@@ -35,11 +35,10 @@ function App() {
   const [kayak, setKayak] = useState(null);
   // Delete state
   const [_kayaks, setKayaks] = useState(kayaks);
-
   // Delete Product
   const deleteKayak = kayakId => {
     const filteredKayak = _kayaks.filter(kayak => kayak.id !== kayakId);
-    setKayak(filteredKayak);
+    setKayaks(filteredKayak);
   };
   // Function to toggle the theme
   const toggleTheme = () => {
@@ -59,8 +58,8 @@ function App() {
       <Kayakdetails kayak={kayak} setKayak={setKayak} />
     ) : (
       <KayakList
-        deleteKayak={deleteKayak}
         kayaks={_kayaks}
+        deleteKayak={deleteKayak}
         setKayak={setKayak}
       />
     );

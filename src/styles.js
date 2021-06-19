@@ -46,7 +46,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const KayaksContainer = styled.div`
-  margin-top: 1rem;
+  margin: 2rem 0;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -65,5 +65,8 @@ export const DetailsContainer = styled.div`
 
 export const DeleteButtonStyled = styled.button`
   color: ${props => props.theme.red};
-  padding: 1rem;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
 `;

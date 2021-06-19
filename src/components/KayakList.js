@@ -18,7 +18,7 @@ const KayakList = props => {
       return (
         <KayakItem
           deleteKayak={props.deleteKayak}
-          key={kayak.id}
+          key={kayaks.id}
           setKayak={props.setKayak}
           kayak={kayak}
         />

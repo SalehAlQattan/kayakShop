@@ -18,7 +18,7 @@ const kayaks = [
     name: 'Transparent Kayak',
     description: 'Two Person Kayak, Cool Transparent Kayak',
     price: 180,
-    img: 'https://mk0myhipblogcxgamt0p.kinstacdn.com/wp-content/uploads/2016/08/molokini-clear-blue-at-aghalife-original-800x600.jpg',
+    img: 'https://media-cdn.tripadvisor.com/media/photo-s/03/4b/18/fe/clearly-unique-charters.jpg',
   },
   {
     id: 4,
