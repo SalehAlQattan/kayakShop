@@ -1,25 +1,24 @@
-// Default styling
-import '../App.css';
 // Components
-import kayaks from '../products';
-import KayakItem from './KayakItem';
-import Searchbar from './Searchbar';
+import KayakItem from "./KayakItem";
+import SearchBar from "./SearchBar";
 // Styles
-import { KayaksContainer } from '../styles';
+import { KayaksContainer } from "../styles";
 // useState
-import { useState } from 'react';
+import { useState } from "react";
 
-const KayakList = props => {
-  const [query, setQuery] = useState('');
+const KayakList = ({ deleteKayak, kayaks, setKayak }) => {
+  // Delete Product
 
-  const kayakList = props.kayaks
-    .filter(kayak => kayak.name.toUpperCase().includes(query.toUpperCase()))
-    .map(kayak => {
+  const [query, setQuery] = useState("");
+
+  const kayakList = kayaks
+    .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
+    .map((kayak) => {
       return (
         <KayakItem
-          deleteKayak={props.deleteKayak}
+          deleteKayak={deleteKayak}
           key={kayaks.id}
-          setKayak={props.setKayak}
+          setKayak={setKayak}
           kayak={kayak}
         />
       );
@@ -27,7 +26,7 @@ const KayakList = props => {
 
   return (
     <div>
-      <Searchbar setQuery={setQuery} />
+      <SearchBar setQuery={setQuery} />
       <KayaksContainer>{kayakList}</KayaksContainer>
     </div>
   );
