@@ -1,27 +1,27 @@
 // Default styling
-import "./App.css";
+import './App.css';
 // Components
-import Home from "./components/Home";
-import KayakList from "./components/KayakList";
-import Kayakdetails from "./components/KayakDetails";
+import Home from './components/Home';
+import KayakList from './components/KayakList';
+import KayakDetails from './components/KayakDetails';
 // Styles
-import { GlobalStyle, ToggleButton } from "./styles";
-import { ThemeProvider } from "styled-components";
+import { GlobalStyle, ToggleButton } from './styles';
+import { ThemeProvider } from 'styled-components';
 // useStates
-import { useState } from "react";
-import importedKayaks from "./products";
+import { useState } from 'react';
+import importedKayaks from './products';
 
 // Website theme
 const theme = {
   dark: {
-    mainColor: "#dbe6fd",
-    backgroundColor: "#293b5f",
-    red: "red",
+    mainColor: '#dbe6fd',
+    backgroundColor: '#293b5f',
+    red: 'red',
   },
   light: {
-    mainColor: "#293b5f",
-    backgroundColor: "#dbe6fd",
-    red: "red",
+    mainColor: '#293b5f',
+    backgroundColor: '#dbe6fd',
+    red: 'red',
   },
 };
 
@@ -32,20 +32,20 @@ function App() {
   const [kayak, setKayak] = useState(null);
   const [kayaks, setKayaks] = useState(importedKayaks);
 
-  const deleteKayak = (kayakId) => {
-    let newFilteredKayaks = kayaks.filter((kayak) => kayak.id !== kayakId);
+  const deleteKayak = kayakId => {
+    let newFilteredKayaks = kayaks.filter(kayak => kayak.id !== kayakId);
     setKayaks(newFilteredKayaks);
   };
 
   return (
-    <ThemeProvider theme={theme[isDarkMode ? "dark" : "light"]}>
+    <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
-      <ToggleButton onClick={() => setIsDarkMode((prevState) => !prevState)}>
-        {isDarkMode ? "Light Mode" : "Dark Mode"}
+      <ToggleButton onClick={() => setIsDarkMode(prevState => !prevState)}>
+        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </ToggleButton>
       <Home />
       {kayak ? (
-        <Kayakdetails
+        <KayakDetails
           deleteKayak={deleteKayak}
           kayak={kayak}
           setKayak={setKayak}

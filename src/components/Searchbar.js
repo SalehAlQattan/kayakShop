@@ -1,10 +1,10 @@
 // components
-import { InputField } from "../styles";
+import { InputField } from '../styles';
 
 const SearchBar = ({ setQuery }) => {
   return (
     <InputField
-      onChange={(event) => setQuery(event.target.value)}
+      onChange={event => setQuery(event.target.value)}
       placeholder="Enter Your Query Here..."
     />
   );
