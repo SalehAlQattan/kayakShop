@@ -1,83 +1,63 @@
 // Default styling
-import './App.css';
+import "./App.css";
 // Components
-import Home from './components/Home';
-import KayakList from './components/KayakList';
-import Kayakdetails from './components/Kayakdetails';
+import Home from "./components/Home";
+import KayakList from "./components/KayakList";
+import Kayakdetails from "./components/KayakDetails";
 // Styles
-import { GlobalStyle, ToggleButton } from './styles';
-import { ThemeProvider } from 'styled-components';
+import { GlobalStyle, ToggleButton } from "./styles";
+import { ThemeProvider } from "styled-components";
 // useStates
-import { useState } from 'react';
-// Data
-import kayaks from './products';
+import { useState } from "react";
+import importedKayaks from "./products";
 
 // Website theme
 const theme = {
   dark: {
-    mainColor: '#dbe6fd',
-    backgroundColor: '#293b5f',
-    red: 'red',
+    mainColor: "#dbe6fd",
+    backgroundColor: "#293b5f",
+    red: "red",
   },
   light: {
-    mainColor: '#293b5f',
-    backgroundColor: '#dbe6fd',
-    red: 'red',
+    mainColor: "#293b5f",
+    backgroundColor: "#dbe6fd",
+    red: "red",
   },
 };
 
 function App() {
   // Changing the theme state
-  const [currentTheme, setCurrentTheme] = useState('light');
-  // Chainging the dark mode button state
-  const [buttonText, setButtonText] = useState('Dark Mode');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   // Switch between one product or the whole list
   const [kayak, setKayak] = useState(null);
-  // Delete state
-  const [_kayaks, setKayaks] = useState(kayaks);
-  // Delete Product
-  const deleteKayak = kayakId => {
-    const filteredKayak = _kayaks.filter(kayak => kayak.id !== kayakId);
-    setKayaks(filteredKayak);
-  };
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    currentTheme === 'light'
-      ? setCurrentTheme('dark')
-      : setCurrentTheme('light');
-  };
-  // Function to toggle the dark mode button
-  const toggleText = () => {
-    buttonText === 'Dark Mode'
-      ? setButtonText('Light Mode')
-      : setButtonText('Dark Mode');
-  };
-  // Switch between one product or the whole list
-  const setView = () => {
-    return kayak ? (
-      <Kayakdetails kayak={kayak} setKayak={setKayak} />
-    ) : (
-      <KayakList
-        kayaks={_kayaks}
-        deleteKayak={deleteKayak}
-        setKayak={setKayak}
-      />
-    );
+  const [kayaks, setKayaks] = useState(importedKayaks);
+
+  const deleteKayak = (kayakId) => {
+    let newFilteredKayaks = kayaks.filter((kayak) => kayak.id !== kayakId);
+    setKayaks(newFilteredKayaks);
   };
 
   return (
-    <ThemeProvider theme={theme[currentTheme]}>
+    <ThemeProvider theme={theme[isDarkMode ? "dark" : "light"]}>
       <GlobalStyle />
-      <ToggleButton
-        onClick={() => {
-          toggleTheme();
-          toggleText();
-        }}
-      >
-        {buttonText}
+      <ToggleButton onClick={() => setIsDarkMode((prevState) => !prevState)}>
+        {isDarkMode ? "Light Mode" : "Dark Mode"}
       </ToggleButton>
       <Home />
-      {setView()}
+      {kayak ? (
+        <Kayakdetails
+          deleteKayak={deleteKayak}
+          kayak={kayak}
+          setKayak={setKayak}
+        />
+      ) : (
+        <KayakList
+          deleteKayak={deleteKayak}
+          kayaks={kayaks}
+          setKayaks={setKayaks}
+          setKayak={setKayak}
+        />
+      )}
     </ThemeProvider>
   );
 }

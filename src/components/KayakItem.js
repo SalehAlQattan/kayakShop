@@ -1,22 +1,18 @@
-import '../App.css';
-import { ProductContainer } from '../styles';
-import DeleteButton from '../components/buttons/DeleteButton';
+import "../App.css";
+import { ProductContainer } from "../styles";
+import DeleteButton from "../components/buttons/DeleteButton";
 
-const KayakItem = props => {
+const KayakItem = ({ setKayak, kayak, deleteKayak }) => {
   return (
     <div>
       <ProductContainer>
-        <img
-          onClick={() => props.setKayak(props.kayak)}
-          src={props.kayak.img}
-          alt={props.kayak.name}
-        />
-        <h2>{props.kayak.name}</h2>
-        <h2>{props.kayak.price} KD</h2>
+        <img onClick={() => setKayak(kayak)} src={kayak.img} alt={kayak.name} />
+        <h2>{kayak.name}</h2>
+        <h2>{kayak.price} KD</h2>
         <DeleteButton
-          deleteKayak={props.kayak.deleteKayak}
-          kayakId={props.kayak.id}
-          setKayak={props.kayak.setKayak}
+          deleteKayak={deleteKayak}
+          kayakId={kayak.id}
+          setKayak={setKayak}
         />
       </ProductContainer>
     </div>
