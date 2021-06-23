@@ -1,3 +1,5 @@
+import productStore from '../stores/productsStore';
+import { observer } from 'mobx-react';
 // Components
 import KayakItem from './KayakItem';
 import SearchBar from './SearchBar';
@@ -7,19 +9,17 @@ import { KayaksContainer } from '../styles';
 import { useState } from 'react';
 
 const KayakList = ({ deleteKayak, kayaks, setKayak }) => {
-  // Delete Product
-
   const [query, setQuery] = useState('');
-
-  const kayakList = kayaks
-    .filter(kayak => kayak.name.toUpperCase().includes(query.toUpperCase()))
-    .map(kayak => {
+  const kayakList = productStore.kayaks
+    .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
+    .map((kayak) => {
       return (
         <KayakItem
           deleteKayak={deleteKayak}
           key={kayaks.id}
           setKayak={setKayak}
           kayak={kayak}
+          kayaks={kayaks}
         />
       );
     });
@@ -32,4 +32,4 @@ const KayakList = ({ deleteKayak, kayaks, setKayak }) => {
   );
 };
 
-export default KayakList;
+export default observer(KayakList);

@@ -4,12 +4,16 @@ import './App.css';
 import Home from './components/Home';
 import KayakList from './components/KayakList';
 import KayakDetails from './components/KayakDetails';
+import NavBar from './components/NavBar';
 // Styles
-import { GlobalStyle, ToggleButton } from './styles';
+import { GlobalStyle } from './styles';
 import { ThemeProvider } from 'styled-components';
 // useStates
 import { useState } from 'react';
+// data
 import importedKayaks from './products';
+// router
+import { Route, Switch } from 'react-router';
 
 // Website theme
 const theme = {
@@ -32,32 +36,25 @@ function App() {
   const [kayak, setKayak] = useState(null);
   const [kayaks, setKayaks] = useState(importedKayaks);
 
-  const deleteKayak = kayakId => {
-    let newFilteredKayaks = kayaks.filter(kayak => kayak.id !== kayakId);
-    setKayaks(newFilteredKayaks);
-  };
-
   return (
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
-      <ToggleButton onClick={() => setIsDarkMode(prevState => !prevState)}>
-        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-      </ToggleButton>
-      <Home />
-      {kayak ? (
-        <KayakDetails
-          deleteKayak={deleteKayak}
-          kayak={kayak}
-          setKayak={setKayak}
-        />
-      ) : (
-        <KayakList
-          deleteKayak={deleteKayak}
-          kayaks={kayaks}
-          setKayaks={setKayaks}
-          setKayak={setKayak}
-        />
-      )}
+      <NavBar setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/kayaks/:kayakSlug">
+          <KayakDetails kayak={kayak} kayaks={kayaks} />
+        </Route>
+        <Route path="/products">
+          <KayakList
+            kayaks={kayaks}
+            setKayaks={setKayaks}
+            setKayak={setKayak}
+          />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }

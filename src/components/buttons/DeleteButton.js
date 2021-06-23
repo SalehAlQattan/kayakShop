@@ -1,9 +1,11 @@
-import { DeleteButtonStyled } from "../../styles";
+import productStore from '../../stores/productsStore';
+import { DeleteButtonStyled } from '../../styles';
 
 const DeleteButton = ({ deleteKayak, kayakId, setKayak }) => {
   const handleDelete = () => {
-    deleteKayak(kayakId);
-    setKayak(null);
+    // deleteKayak(kayakId);
+    productStore.deleteKayak(kayakId);
+    // setKayak(null);
     // console.log(props.kayakId);
   };
   return <DeleteButtonStyled onClick={handleDelete}>Delete</DeleteButtonStyled>;

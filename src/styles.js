@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
-
+import { NavLink } from 'react-router-dom';
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${props => props.theme.backgroundColor};
-    color: ${props => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+    color: ${(props) => props.theme.mainColor};
     text-align: center;
     width: 90%;
     margin: 0 auto;
@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ToggleButton = styled.button`
-  color: ${props => props.theme.backgroundColor};
-  background: ${props => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+  background: ${(props) => props.theme.mainColor};
   padding: 10px;
   border-radius: 7px;
   font-size: 1.6rem;
@@ -37,7 +37,6 @@ export const InputField = styled.input`
 
 export const ProductContainer = styled.div`
   cursor: pointer;
-
   img {
     width: 250px;
     height: 250px;
@@ -64,9 +63,25 @@ export const DetailsContainer = styled.div`
 `;
 
 export const DeleteButtonStyled = styled.button`
-  color: ${props => props.theme.red};
+  color: ${(props) => props.theme.red};
   padding: 7px;
   border-radius: 5px;
   font-weight: bold;
   text-transform: uppercase;
+`;
+
+export const NavProduct = styled(NavLink)`
+  background: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.mainColor};
+  &.active {
+    color: ${({ theme }) => theme.red};
+    font-weight: bold;
+  }
+`;
+
+export const Logo = styled(NavLink)`
+  padding: 10px;
+  img {
+    width: 20%;
+  }
 `;

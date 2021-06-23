@@ -1,19 +1,25 @@
-import "../App.css";
-import { ProductContainer } from "../styles";
-import DeleteButton from "../components/buttons/DeleteButton";
+import '../App.css';
+// styles
+import { ProductContainer } from '../styles';
+// components
+import DeleteButton from '../components/buttons/DeleteButton';
+// router
+import { Link } from 'react-router-dom';
 
-const KayakItem = ({ setKayak, kayak, deleteKayak }) => {
+const KayakItem = ({ setKayak, deleteKayak, kayak }) => {
   return (
     <div>
       <ProductContainer>
-        <img onClick={() => setKayak(kayak)} src={kayak.img} alt={kayak.name} />
+        <Link to={`/kayaks/${kayak.slug}`}>
+          <img
+            onClick={() => setKayak(kayak)}
+            src={kayak.img}
+            alt={kayak.name}
+          />
+        </Link>
         <h2>{kayak.name}</h2>
         <h2>{kayak.price} KD</h2>
-        <DeleteButton
-          deleteKayak={deleteKayak}
-          kayakId={kayak.id}
-          setKayak={setKayak}
-        />
+        <DeleteButton kayakId={kayak.id} />
       </ProductContainer>
     </div>
   );
