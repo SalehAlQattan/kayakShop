@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.mainColor};
     text-align: center;
-    width: 90%;
+    ${'' /* width: 100%; */}
     margin: 0 auto;
   }
 `;
@@ -50,6 +50,7 @@ export const KayaksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 5rem;
   text-align: center;
 `;
 
@@ -64,10 +65,19 @@ export const DetailsContainer = styled.div`
 
 export const DeleteButtonStyled = styled.button`
   color: ${(props) => props.theme.red};
-  padding: 7px;
+  padding: 10px;
   border-radius: 5px;
   font-weight: bold;
   text-transform: uppercase;
+  border: none;
+`;
+
+export const NavigationBar = styled.div`
+  background: #ccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
 `;
 
 export const NavProduct = styled(NavLink)`
@@ -77,11 +87,12 @@ export const NavProduct = styled(NavLink)`
     color: ${({ theme }) => theme.red};
     font-weight: bold;
   }
+  text-decoration: none;
+  text-transform: uppercase;
 `;
 
 export const Logo = styled(NavLink)`
-  padding: 10px;
   img {
-    width: 20%;
+    width: 50%;
   }
 `;

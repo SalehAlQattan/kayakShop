@@ -1,7 +1,7 @@
 // image
 import logo from '../images/logo.png';
 // styles
-import { ToggleButton, NavProduct, Logo } from '../styles';
+import { ToggleButton, NavigationBar, NavProduct, Logo } from '../styles';
 
 /***************************
   Try to Add Dark Mode logo
@@ -9,7 +9,7 @@ import { ToggleButton, NavProduct, Logo } from '../styles';
 
 const NavBar = ({ isDarkMode, setIsDarkMode }) => {
   return (
-    <div>
+    <NavigationBar>
       <Logo to="/">
         <img src={logo} />
       </Logo>
@@ -17,7 +17,7 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </ToggleButton>
       <NavProduct to="/products">Products</NavProduct>
-    </div>
+    </NavigationBar>
   );
 };
 

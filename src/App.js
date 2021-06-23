@@ -1,5 +1,3 @@
-// Default styling
-import './App.css';
 // Components
 import Home from './components/Home';
 import KayakList from './components/KayakList';
@@ -32,9 +30,6 @@ const theme = {
 function App() {
   // Changing the theme state
   const [isDarkMode, setIsDarkMode] = useState(false);
-  // Switch between one product or the whole list
-  const [kayak, setKayak] = useState(null);
-  const [kayaks, setKayaks] = useState(importedKayaks);
 
   return (
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
@@ -45,14 +40,10 @@ function App() {
           <Home />
         </Route>
         <Route path="/kayaks/:kayakSlug">
-          <KayakDetails kayak={kayak} kayaks={kayaks} />
+          <KayakDetails />
         </Route>
         <Route path="/products">
-          <KayakList
-            kayaks={kayaks}
-            setKayaks={setKayaks}
-            setKayak={setKayak}
-          />
+          <KayakList />
         </Route>
       </Switch>
     </ThemeProvider>

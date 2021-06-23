@@ -9,28 +9,24 @@ import DeleteButton from './buttons/DeleteButton';
 // router
 import { useParams, Redirect, Link } from 'react-router-dom';
 
-const Kayakdetails = ({ setKayak, deleteKayak, kayaks }) => {
+const Kayakdetails = () => {
   const kayakSlug = useParams().kayakSlug;
   const kayak = productStore.kayaks.find((kayak) => kayak.slug === kayakSlug);
-
+  // check if there is no products redirect to the products list
   if (!kayak) return <Redirect to="/products" />;
 
   return (
     <DetailsContainer>
-      <img src={kayak.img} alt={kayaks.name} />
+      <img src={kayak.img} alt={kayak.name} />
       <h2>{kayak.name}</h2>
       <h2>{kayak.price} KD</h2>
       <h2>{kayak.description}</h2>
       <Link to="/products">
         <button>Go Back</button>
       </Link>
-      <DeleteButton
-        deleteKayak={deleteKayak}
-        setKayak={setKayak}
-        kayakId={kayak.id}
-      />
+      <DeleteButton kayakId={kayak.id} />
     </DetailsContainer>
   );
 };
-
+// the observer rerender the page after the changes
 export default observer(Kayakdetails);

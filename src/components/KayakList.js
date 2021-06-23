@@ -8,20 +8,12 @@ import { KayaksContainer } from '../styles';
 // useState
 import { useState } from 'react';
 
-const KayakList = ({ deleteKayak, kayaks, setKayak }) => {
+const KayakList = () => {
   const [query, setQuery] = useState('');
   const kayakList = productStore.kayaks
     .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
     .map((kayak) => {
-      return (
-        <KayakItem
-          deleteKayak={deleteKayak}
-          key={kayaks.id}
-          setKayak={setKayak}
-          kayak={kayak}
-          kayaks={kayaks}
-        />
-      );
+      return <KayakItem key={kayak.id} kayak={kayak} />;
     });
 
   return (

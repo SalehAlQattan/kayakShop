@@ -31,6 +31,22 @@ const kayaks = [
     price: 100,
     img: 'https://images-na.ssl-images-amazon.com/images/I/71Gix6EC8hL._AC_SX522_.jpg',
   },
+  {
+    id: 5,
+    name: 'Fishing Kayak',
+    slug: 'fishing-kayak',
+    description: 'One Person Kayak, Cool Fishing Kayak',
+    price: 200,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81LE-tomtBL._AC_SL1500_.jpg',
+  },
+  {
+    id: 6,
+    name: 'Sit-In Kayak',
+    slug: 'Sit-in-kayak',
+    description: 'One Person Kayak, Cool Fishing Kayak',
+    price: 200,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71clp6NG7CL._AC_SL1500_.jpg',
+  },
 ];
 
 export default kayaks;
