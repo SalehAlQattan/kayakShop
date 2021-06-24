@@ -12,6 +12,7 @@ const KayakList = () => {
   const [query, setQuery] = useState('');
   const kayakList = productStore.kayaks
     .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
+    .sort((a, b) => a.price - b.price)
     .map((kayak) => {
       return <KayakItem key={kayak.id} kayak={kayak} />;
     });

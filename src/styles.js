@@ -59,7 +59,7 @@ export const DetailsContainer = styled.div`
   margin: 1rem auto;
   img {
     margin-top: 1rem;
-    width: 90%;
+    width: 700px;
   }
 `;
 

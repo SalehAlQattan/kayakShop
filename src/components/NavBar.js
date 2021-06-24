@@ -11,7 +11,7 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <NavigationBar>
       <Logo to="/">
-        <img src={logo} />
+        <img src={logo} alt="logo" />
       </Logo>
       <ToggleButton onClick={() => setIsDarkMode((prevState) => !prevState)}>
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}

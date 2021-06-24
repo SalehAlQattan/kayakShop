@@ -8,8 +8,6 @@ import { GlobalStyle } from './styles';
 import { ThemeProvider } from 'styled-components';
 // useStates
 import { useState } from 'react';
-// data
-import importedKayaks from './products';
 // router
 import { Route, Switch } from 'react-router';
 
