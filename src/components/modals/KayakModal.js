@@ -72,7 +72,7 @@ const KayakModal = ({ isOpen, closeModal }) => {
               className="form-control"
               type="text"
               onChange={handleChange}
-              name="image"
+              name="img"
               placeholder="Enter The IMG URL"
             />
           </div>
