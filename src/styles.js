@@ -1,5 +1,10 @@
+// styled-components
 import styled, { createGlobalStyle } from 'styled-components';
+// router
 import { NavLink } from 'react-router-dom';
+// icons
+import { RiAddCircleFill } from 'react-icons/ri';
+
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.backgroundColor};
@@ -95,4 +100,9 @@ export const Logo = styled(NavLink)`
   img {
     width: 50%;
   }
+`;
+
+export const RiAddCircleFillStyled = styled(RiAddCircleFill)`
+  color: ${({ theme }) => theme.mainColor};
+  background: ${({ theme }) => theme.backgroundColor};
 `;
