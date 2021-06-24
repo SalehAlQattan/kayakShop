@@ -5,18 +5,23 @@ import Modal from 'react-modal';
 // store
 import productStore from '../../stores/productsStore';
 
-const KayakModal = ({ isOpen, closeModal }) => {
+const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
   // create new kayak
-  const [kayak, setKayak] = useState({
-    name: '',
-    description: '',
-    price: 0,
-    img: '',
-  });
+  const [kayak, setKayak] = useState(
+    oldKayak
+      ? oldKayak
+      : {
+          name: '',
+          description: '',
+          price: 0,
+          img: '',
+        }
+  );
   //
   const handleSubmit = (event) => {
     event.preventDefault();
-    productStore.createKayak(kayak);
+    if (oldKayak) productStore.updateKayak(kayak);
+    else productStore.createKayak(kayak);
     closeModal();
   };
 
@@ -42,6 +47,7 @@ const KayakModal = ({ isOpen, closeModal }) => {
                 onChange={handleChange}
                 name="name"
                 placeholder="Enter The Name"
+                value={kayak.name}
               />
             </div>
             <div className="col-6">
@@ -53,6 +59,7 @@ const KayakModal = ({ isOpen, closeModal }) => {
                 onChange={handleChange}
                 name="price"
                 placeholder="Enter The Price"
+                value={kayak.price}
               />
             </div>
           </div>
@@ -64,6 +71,7 @@ const KayakModal = ({ isOpen, closeModal }) => {
               onChange={handleChange}
               name="description"
               placeholder="Enter The Description"
+              value={kayak.description}
             />
           </div>
           <div className="form-group">
@@ -74,6 +82,7 @@ const KayakModal = ({ isOpen, closeModal }) => {
               onChange={handleChange}
               name="img"
               placeholder="Enter The IMG URL"
+              value={kayak.img}
             />
           </div>
           <button type="submit" className="btn btn-outline-primary">

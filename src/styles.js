@@ -106,3 +106,13 @@ export const RiAddCircleFillStyled = styled(RiAddCircleFill)`
   color: ${({ theme }) => theme.mainColor};
   background: ${({ theme }) => theme.backgroundColor};
 `;
+
+export const UpdateButtonStyled = styled.button`
+  color: orange;
+  margin: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+`;
