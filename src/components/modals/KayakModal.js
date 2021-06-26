@@ -86,7 +86,7 @@ const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
             />
           </div>
           <button type="submit" className="btn btn-outline-primary">
-            Submit
+            {oldKayak ? 'UPDATE' : 'SUBMIT'}
           </button>
         </form>
       </Modal>

@@ -6,7 +6,7 @@ import DeleteButton from '../components/buttons/DeleteButton';
 import UpdateButton from './buttons/UpdateButton';
 // router
 import { Link } from 'react-router-dom';
-//
+// mobx observer to watch the edit
 import { observer } from 'mobx-react';
 
 const KayakItem = ({ kayak }) => {
