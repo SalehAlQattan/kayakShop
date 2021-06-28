@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import productStore from '../../stores/productsStore';
 
 const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
-  // create new kayak
+  // kayak state
   const [kayak, setKayak] = useState(
     oldKayak
       ? oldKayak

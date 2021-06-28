@@ -1,16 +1,24 @@
-// mobX
+// improting packages
 import { makeAutoObservable } from 'mobx';
-// data
-import products from '../products';
-// store class
 import slugify from 'slugify';
+import axios from 'axios';
+// class store
 class ProductsStore {
-  // data
-  kayaks = products;
-  // setting the constructore to watch the data
+  // empty array to store fetched data in
+  kayaks = [];
+  // setting the constructor to watch the data
   constructor() {
     makeAutoObservable(this);
   }
+  // fetting data
+  fetchKayaks = async () => {
+    try {
+      const respons = await axios.get('http://localhost:8000/kayaks');
+      this.kayaks = respons.data;
+    } catch (error) {
+      console.error('fetch kayak: ', error);
+    }
+  };
   // delete products
   deleteKayak = (kayakId) => {
     let newFilteredKayaks = this.kayaks.filter((kayak) => kayak.id !== kayakId);
@@ -34,5 +42,7 @@ class ProductsStore {
 }
 // creating new instance of the class
 const productStore = new ProductsStore();
+// fetching data on load
+productStore.fetchKayaks();
 // exporting the new instance
 export default productStore;
