@@ -20,9 +20,16 @@ class ProductsStore {
     }
   };
   // delete products
-  deleteKayak = (kayakId) => {
-    let newFilteredKayaks = this.kayaks.filter((kayak) => kayak.id !== kayakId);
-    this.kayaks = newFilteredKayaks;
+  deleteKayak = async (kayakId) => {
+    try {
+      await axios.delete(`http://localhost:8000/kayaks/${kayakId}`);
+      let newFilteredKayaks = this.kayaks.filter(
+        (kayak) => kayak.id !== kayakId
+      );
+      this.kayaks = newFilteredKayaks;
+    } catch (error) {
+      console.error(error);
+    }
   };
   // create new kayak
   createKayak = (newKayak) => {
