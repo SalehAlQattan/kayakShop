@@ -44,13 +44,21 @@ class ProductsStore {
     }
   };
   // update kayak
-  updateKayak = (updatedKayak) => {
-    const kayak = this.kayaks.find((kayak) => kayak.id === updatedKayak.id);
-    kayak.name = updatedKayak.name;
-    kayak.price = updatedKayak.price;
-    kayak.description = updatedKayak.description;
-    kayak.img = updatedKayak.img;
-    kayak.slug = slugify(updatedKayak.name);
+  updateKayak = async (updatedKayak) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/kayaks/${updatedKayak.id}`,
+        updatedKayak
+      );
+      const kayak = this.kayaks.find((kayak) => kayak.id === updatedKayak.id);
+      kayak.name = updatedKayak.name;
+      kayak.price = updatedKayak.price;
+      kayak.description = updatedKayak.description;
+      kayak.img = updatedKayak.img;
+      kayak.slug = slugify(updatedKayak.name);
+    } catch (error) {
+      console.error(error);
+    }
   };
 }
 // creating new instance of the class
