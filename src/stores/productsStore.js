@@ -13,8 +13,8 @@ class ProductsStore {
   // fetting data
   fetchKayaks = async () => {
     try {
-      const respons = await axios.get('http://localhost:8000/kayaks');
-      this.kayaks = respons.data;
+      const response = await axios.get('http://localhost:8000/kayaks');
+      this.kayaks = response.data;
     } catch (error) {
       console.error('fetch kayak: ', error);
     }
@@ -32,10 +32,16 @@ class ProductsStore {
     }
   };
   // create new kayak
-  createKayak = (newKayak) => {
-    newKayak.id = this.kayaks.length + 1;
-    newKayak.slug = slugify(newKayak.name);
-    this.kayaks.push(newKayak);
+  createKayak = async (newKayak) => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/kayaks',
+        newKayak
+      );
+      this.kayaks.push(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   // update kayak
   updateKayak = (updatedKayak) => {
