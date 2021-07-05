@@ -1,4 +1,3 @@
-import '../App.css';
 // styles
 import { ProductContainer } from '../styles';
 // components
