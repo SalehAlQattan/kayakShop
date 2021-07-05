@@ -5,7 +5,11 @@ import KayakItem from './KayakItem';
 import SearchBar from './SearchBar';
 import KayakModal from './modals/KayakModal';
 // Styles
-import { KayaksContainer, RiAddCircleFillStyled } from '../styles';
+import {
+  KayaksContainer,
+  RiAddCircleFillStyled,
+  ListContainer,
+} from '../styles';
 // useState
 import { useState } from 'react';
 
@@ -26,12 +30,12 @@ const KayakList = () => {
     });
 
   return (
-    <div>
+    <ListContainer>
       <SearchBar setQuery={setQuery} />
       <RiAddCircleFillStyled onClick={openModal} size="5rem" />
       <KayakModal closeModal={closeModal} isOpen={isOpen} />
       <KayaksContainer>{kayakList}</KayaksContainer>
-    </div>
+    </ListContainer>
   );
 };
 

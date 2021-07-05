@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.backgroundColor};
     color: ${(props) => props.theme.mainColor};
     text-align: center;
-    ${'' /* width: 100%; */}
     margin: 0 auto;
   }
 `;
@@ -18,9 +17,8 @@ export const GlobalStyle = createGlobalStyle`
 export const ToggleButton = styled.button`
   color: ${(props) => props.theme.backgroundColor};
   background: ${(props) => props.theme.mainColor};
-  padding: 10px;
+  padding: 7px;
   border-radius: 7px;
-  font-size: 1.6rem;
   font-weight: bold;
   cursor: pointer;
 `;
@@ -77,6 +75,14 @@ export const DeleteButtonStyled = styled.button`
   border: none;
 `;
 
+export const BackButton = styled.button`
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+`;
+
 export const NavigationBar = styled.div`
   background: #ccc;
   display: flex;
@@ -115,4 +121,9 @@ export const UpdateButtonStyled = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   border: none;
+`;
+
+export const ListContainer = styled.div`
+  width: 70%;
+  margin: 0 auto;
 `;

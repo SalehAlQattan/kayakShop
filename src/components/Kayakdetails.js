@@ -3,7 +3,7 @@ import productStore from '../stores/productsStore';
 // observer state
 import { observer } from 'mobx-react';
 // styles
-import { DetailsContainer } from '../styles';
+import { DetailsContainer, BackButton } from '../styles';
 // components
 import DeleteButton from './buttons/DeleteButton';
 // router
@@ -21,10 +21,19 @@ const Kayakdetails = () => {
       <h2>{kayak.name}</h2>
       <h2>{kayak.price} KD</h2>
       <h2>{kayak.description}</h2>
-      <Link to="/products">
-        <button>Go Back</button>
-      </Link>
-      <DeleteButton kayakId={kayak.id} />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '50px',
+          marginTop: '50px',
+        }}
+      >
+        <Link to="/products">
+          <BackButton>Go Back</BackButton>
+        </Link>
+        <DeleteButton kayakId={kayak.id} />
+      </div>
     </DetailsContainer>
   );
 };
