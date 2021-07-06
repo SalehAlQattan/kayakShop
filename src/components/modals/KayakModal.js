@@ -85,9 +85,11 @@ const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
               value={kayak.img}
             />
           </div>
-          <button type="submit" className="btn btn-outline-primary">
-            {oldKayak ? 'UPDATE' : 'SUBMIT'}
-          </button>
+          <div class="d-grid gap-2">
+            <button type="submit" className="btn btn-outline-primary mt-3">
+              {oldKayak ? 'UPDATE' : 'SUBMIT'}
+            </button>
+          </div>
         </form>
       </Modal>
     </div>
