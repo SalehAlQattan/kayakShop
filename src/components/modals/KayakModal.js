@@ -29,6 +29,10 @@ const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
   const handleChange = (event) => {
     setKayak({ ...kayak, [event.target.name]: event.target.value });
   };
+  // handling image
+  const handleImage = (event) => {
+    setKayak({ ...kayak, img: event.target.files[0] });
+  };
 
   return (
     <div>
@@ -78,11 +82,10 @@ const KayakModal = ({ isOpen, closeModal, oldKayak }) => {
             <label>Image</label>
             <input
               className="form-control"
-              type="text"
-              onChange={handleChange}
+              type="file"
+              onChange={handleImage}
               name="img"
               placeholder="Enter The IMG URL"
-              value={kayak.img}
             />
           </div>
           <div class="d-grid gap-2">

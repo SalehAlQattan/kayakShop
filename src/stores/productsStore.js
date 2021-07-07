@@ -34,9 +34,11 @@ class ProductsStore {
   // create new kayak
   createKayak = async (newKayak) => {
     try {
+      const formData = new FormData();
+      for (const key in newKayak) formData.append(key, newKayak[key]);
       const response = await axios.post(
         'http://localhost:8000/kayaks',
-        newKayak
+        formData
       );
       this.kayaks.push(response.data);
     } catch (error) {
@@ -46,16 +48,14 @@ class ProductsStore {
   // update kayak
   updateKayak = async (updatedKayak) => {
     try {
-      await axios.put(
+      const formData = new FormData();
+      for (const key in updatedKayak) formData.append(key, updatedKayak[key]);
+      const response = await axios.put(
         `http://localhost:8000/kayaks/${updatedKayak.id}`,
-        updatedKayak
+        formData
       );
       const kayak = this.kayaks.find((kayak) => kayak.id === updatedKayak.id);
-      kayak.name = updatedKayak.name;
-      kayak.price = updatedKayak.price;
-      kayak.description = updatedKayak.description;
-      kayak.img = updatedKayak.img;
-      kayak.slug = slugify(updatedKayak.name);
+      for (const key in kayak) kayak[key] = response.data[key];
     } catch (error) {
       console.error(error);
     }
