@@ -7,6 +7,8 @@ import UpdateButton from './buttons/UpdateButton';
 import { Link } from 'react-router-dom';
 // mobx observer to watch the edit
 import { observer } from 'mobx-react';
+// store
+import authtStore from '../stores/authStore';
 
 const KayakItem = ({ kayak }) => {
   return (
@@ -16,8 +18,12 @@ const KayakItem = ({ kayak }) => {
       </Link>
       <h2>{kayak.name}</h2>
       <h2>{kayak.price} KD</h2>
-      <DeleteButton kayakId={kayak.id} />
-      <UpdateButton kayak={kayak} />
+      {authtStore.user && (
+        <>
+          <DeleteButton kayakId={kayak.id} />
+          <UpdateButton kayak={kayak} />
+        </>
+      )}
     </ProductContainer>
   );
 };

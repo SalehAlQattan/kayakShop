@@ -1,15 +1,14 @@
-// Components
-import Home from './components/Home';
-import KayakList from './components/KayakList';
-import KayakDetails from './components/KayakDetails';
 import NavBar from './components/NavBar';
+import Routes from './components/Routes';
 // Styles
 import { GlobalStyle } from './styles';
 import { ThemeProvider } from 'styled-components';
 // useStates
 import { useState } from 'react';
-// router
-import { Route, Switch } from 'react-router';
+import { useEffect } from 'react';
+// stores
+import productStore from './stores/productsStore';
+import manufactureStore from './stores/manufactureStore';
 
 // Website theme
 const theme = {
@@ -33,17 +32,7 @@ function App() {
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
       <NavBar setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/kayaks/:kayakSlug">
-          <KayakDetails />
-        </Route>
-        <Route path="/products">
-          <KayakList />
-        </Route>
-      </Switch>
+      <Routes />
     </ThemeProvider>
   );
 }

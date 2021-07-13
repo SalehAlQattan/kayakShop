@@ -1,4 +1,3 @@
-import productStore from '../stores/productsStore';
 import { observer } from 'mobx-react';
 // Components
 import KayakItem from './KayakItem';
@@ -12,8 +11,9 @@ import {
 } from '../styles';
 // useState
 import { useState } from 'react';
+import authtStore from '../stores/authStore';
 
-const KayakList = () => {
+const KayakList = ({ kayaks, manufacture }) => {
   // search state
   const [query, setQuery] = useState('');
   // add button state
@@ -22,7 +22,7 @@ const KayakList = () => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const kayakList = productStore.kayaks
+  const kayakList = kayaks
     .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
     .sort((a, b) => a.price - b.price)
     .map((kayak) => {
@@ -32,8 +32,14 @@ const KayakList = () => {
   return (
     <ListContainer>
       <SearchBar setQuery={setQuery} />
-      <RiAddCircleFillStyled onClick={openModal} size="5rem" />
-      <KayakModal closeModal={closeModal} isOpen={isOpen} />
+      {authtStore.user && (
+        <RiAddCircleFillStyled onClick={openModal} size="5rem" />
+      )}
+      <KayakModal
+        closeModal={closeModal}
+        isOpen={isOpen}
+        manufacture={manufacture}
+      />
       <KayaksContainer>{kayakList}</KayaksContainer>
     </ListContainer>
   );

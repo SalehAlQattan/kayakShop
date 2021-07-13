@@ -123,6 +123,39 @@ export const UpdateButtonStyled = styled.button`
   border: none;
 `;
 
+export const SignupButtonStyled = styled.button`
+  /* color: ${(props) => props.theme.red}; */
+  background: #fff;
+  color: green;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+`;
+
+export const SigninButtonStyled = styled.button`
+  /* color: ${(props) => props.theme.red}; */
+  background: #fff;
+  color: green;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+`;
+
+export const SignoutButtonStyled = styled.button`
+  /* color: ${(props) => props.theme.red}; */
+  background: #fff;
+  color: green;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+`;
+
 export const ListContainer = styled.div`
   width: 70%;
   margin: 0 auto;
