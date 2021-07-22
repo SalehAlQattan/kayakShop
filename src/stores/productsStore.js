@@ -38,7 +38,10 @@ class ProductsStore {
     try {
       const formData = new FormData();
       for (const key in newKayak) formData.append(key, newKayak[key]);
-      const response = await instance.post('/kayaks', formData);
+      const response = await instance.post(
+        `/manufactures/${manufacture.id}/kayaks`,
+        formData
+      );
       this.kayaks.push(response.data);
       manufacture.kayaks.push({ id: response.data.id });
     } catch (error) {

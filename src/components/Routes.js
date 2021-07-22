@@ -4,23 +4,10 @@ import { Route, Switch } from 'react-router';
 import Home from './Home';
 import KayakList from './KayakList';
 import KayakDetails from './KayakDetails';
-// stores
-import productStore from '../stores/productsStore';
-import manufactureStore from '../stores/manufactureStore';
-// hooks
-import { useEffect } from 'react';
+// mobx
 import { observer } from 'mobx-react';
 
 const Routes = () => {
-  useEffect(() => {
-    productStore.fetchKayaks();
-    manufactureStore.fetchManufacture();
-  }, []);
-
-  if (manufactureStore.loading || productStore.loading) {
-    return <h1>Loading...</h1>;
-  }
-
   return (
     <Switch>
       <Route exact path="/">

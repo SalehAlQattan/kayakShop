@@ -5,10 +5,6 @@ import { GlobalStyle } from './styles';
 import { ThemeProvider } from 'styled-components';
 // useStates
 import { useState } from 'react';
-import { useEffect } from 'react';
-// stores
-import productStore from './stores/productsStore';
-import manufactureStore from './stores/manufactureStore';
 
 // Website theme
 const theme = {
@@ -32,7 +28,11 @@ function App() {
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
       <NavBar setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
+      {/* {productStore.loading || manufactureStore.loading ? ( */}
+      {/* <h1>Loading...</h1> */}
+      {/* ) : ( */}
       <Routes />
+      {/* )} */}
     </ThemeProvider>
   );
 }

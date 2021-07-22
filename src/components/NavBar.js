@@ -30,7 +30,7 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
       <NavProduct to="/products">Products</NavProduct>
       {authtStore.user ? (
         <>
-          <p>hello {authtStore.user.username}</p>
+          <p>Hello {authtStore.user.username}</p>
           <SignoutButton signuot={authtStore.signuot} />
         </>
       ) : (
