@@ -13,10 +13,7 @@ import {
 import { useState } from 'react';
 import authtStore from '../stores/authStore';
 
-// stores
-import productStore from '../stores/productsStore';
-
-const KayakList = ({ manufacture }) => {
+const KayakList = ({ manufacture, kayaks }) => {
   // search state
   const [query, setQuery] = useState('');
   // add button state
@@ -25,7 +22,7 @@ const KayakList = ({ manufacture }) => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const kayakList = productStore.kayaks
+  const kayakList = kayaks
     .filter((kayak) => kayak.name.toUpperCase().includes(query.toUpperCase()))
     .sort((a, b) => a.price - b.price)
     .map((kayak) => {

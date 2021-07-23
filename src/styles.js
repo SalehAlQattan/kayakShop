@@ -91,7 +91,7 @@ export const NavigationBar = styled.div`
   padding: 10px;
 `;
 
-export const NavProduct = styled(NavLink)`
+export const NavItem = styled(NavLink)`
   background: ${({ theme }) => theme.backgroundColor};
   color: ${({ theme }) => theme.mainColor};
   &.active {

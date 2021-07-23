@@ -2,7 +2,7 @@
 import logo from '../images/logo.png';
 
 // styles
-import { ToggleButton, NavigationBar, NavProduct, Logo } from '../styles';
+import { ToggleButton, NavigationBar, NavItem, Logo } from '../styles';
 
 // buttons
 import SignupButton from './buttons/SignupButton';
@@ -27,10 +27,11 @@ const NavBar = ({ isDarkMode, setIsDarkMode }) => {
       <ToggleButton onClick={() => setIsDarkMode((prevState) => !prevState)}>
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </ToggleButton>
-      <NavProduct to="/products">Products</NavProduct>
+      <NavItem to="/products">kayaks</NavItem>
+      <NavItem to="/manufactures">manufactures</NavItem>
       {authtStore.user ? (
         <>
-          <p>Hello {authtStore.user.username}</p>
+          <h4>Hello {authtStore.user.username}</h4>
           <SignoutButton signuot={authtStore.signuot} />
         </>
       ) : (

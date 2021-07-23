@@ -6,6 +6,9 @@ import { ThemeProvider } from 'styled-components';
 // useStates
 import { useState } from 'react';
 
+// mobx
+import { observer } from 'mobx-react';
+
 // Website theme
 const theme = {
   dark: {
@@ -37,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

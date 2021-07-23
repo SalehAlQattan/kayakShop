@@ -1,9 +1,9 @@
 import manufactureStore from '../stores/manufactureStore';
 import { observer } from 'mobx-react';
 // Components
-import manufactureItem from './manufactureItem';
+import ManufactureItem from './ManufactureItem';
 import SearchBar from './SearchBar';
-import ManufacturekModal from './modals/ManufacturekModal';
+import ManufacturekModal from './modals/ManufactureModal';
 // Styles
 import {
   KayaksContainer,
@@ -28,7 +28,7 @@ const ManufactureList = () => {
     )
     .sort((a, b) => a.price - b.price)
     .map((manufacture) => {
-      return <manufactureItem key={manufacture.id} manufacture={manufacture} />;
+      return <ManufactureItem key={manufacture.id} manufacture={manufacture} />;
     });
 
   return (
