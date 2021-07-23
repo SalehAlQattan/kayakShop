@@ -9,6 +9,10 @@ import { useState } from 'react';
 // mobx
 import { observer } from 'mobx-react';
 
+// stores
+import productStore from './stores/productsStore';
+import manufactureStore from './stores/manufactureStore';
+
 // Website theme
 const theme = {
   dark: {
@@ -31,11 +35,11 @@ function App() {
     <ThemeProvider theme={theme[isDarkMode ? 'dark' : 'light']}>
       <GlobalStyle />
       <NavBar setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
-      {/* {productStore.loading || manufactureStore.loading ? ( */}
-      {/* <h1>Loading...</h1> */}
-      {/* ) : ( */}
-      <Routes />
-      {/* )} */}
+      {productStore.loading || manufactureStore.loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <Routes />
+      )}
     </ThemeProvider>
   );
 }
